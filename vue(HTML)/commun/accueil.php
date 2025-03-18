@@ -3,7 +3,7 @@
 <head>
 
         <base href="/LA_PETANQUE_LA_VRAI/">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta charset="utf-8">    
         <title>Réserve ta pétanque Lorraine</title>
     </head>
@@ -17,8 +17,11 @@
     <a href="reservation.php" class="btn">Réserver maintenant</a>
 </section>
 
+<section>
+<img src="IMG/hero3.png" alt="Terrain de pétanque 2">
+</section>
 
-<section class="hero-section">
+<!-- <section class="hero-section">
     <div class="hero_slider">
         <div class="slide active">
             <img src="IMG/hero1.jpg" alt="boules sur terrain">
@@ -29,18 +32,18 @@
         </div>
 
         <div class="slide">
-            <img src="images/hero2.jpg" alt="Terrain de pétanque 2">
+            <img src="IMG/hero2.jpg" alt="Terrain de pétanque 2">
             <div class="slide-text">
                 <h1>Un concept original</h1>
             <p>Une idée fun pour animer vos soirées</p>
         </div>
 
-           <!-- Flèches de navigation (optionnel) -->
-      <div class="arrow prev">&#10094;</div>
+           <!-sFlèches de navigation (optionnel) -->
+      <!-- <div class="arrow prev">&#10094;</div>
       <div class="arrow next">&#10095;</div>
     </div>
 
-</section>
+</section> --> 
 
 <ul class="nav-links">
         <li><a href="#quisommesnous">Qui sommes-nous ?</a></li>
