@@ -22,9 +22,7 @@
     <div id="map"></div> <!-- Carte interactive -->
 </section>
 
-<footer>
-    <p>© 2024 Réserve ta Pétanque. Tous droits réservés.</p>
-</footer>
+
 
 </body>
 </html>

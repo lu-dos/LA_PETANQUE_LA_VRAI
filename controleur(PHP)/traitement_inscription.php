@@ -23,8 +23,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($result->num_rows > 0){
         echo"<script>alert('Mail deja existant !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
     }else{
-        $stmt=$connexion->prepare("INSERT INTO utilisateur (nom,prenom,mail,ville,mot_de_passe) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss",$nom,$prenom,$mail,$ville,$mdp);
+        $stmt=$connexion->prepare("INSERT INTO utilisateur (nom,prenom,mail,ville,mot_de_passe,isClient,isAdmin) VALUES (?,?,?,?,?,?,?)");
+        $isClient = 1;
+        $isAdmin = 0;
+        $stmt->bind_param("sssssss",$nom,$prenom,$mail,$ville,$mdp,$isClient,$isAdmin);
     
     if($stmt->execute()){
         echo"<script>alert('Inscrition réussie, vous pouvez maintenant vous connecter !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php';</script>";

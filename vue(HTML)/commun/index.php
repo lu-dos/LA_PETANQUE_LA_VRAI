@@ -3,7 +3,7 @@
     <head>
         <title>Inscription</title>
         <base href="/LA_PETANQUE_LA_VRAI/">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css"> 
         <meta charset="utf-8">
 
 <style>
@@ -36,8 +36,9 @@
 
         </form>
 
-
-
+<footer>
+    <?php include('../LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
+</footer>
 
     </body>
 </html>
