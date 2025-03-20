@@ -16,7 +16,7 @@
     <h1>Réserve ta pétanque .com</h1>
 </section>
 
-<section>
+<section class="img">
 <img src="IMG/hero3.png" alt="Terrain de pétanque 2">
 </section>
 
@@ -31,10 +31,6 @@
       <div class="social-links">
         <a href="#" class="instagram">Instagram</a>
       </div>
-
-
-
-
 
 </body>
 

@@ -134,10 +134,9 @@ ul li a:hover {
     text-decoration: underline;
 }
 
-img {
+img{
     max-width: 50%;
     height: auto;
-    margin: 20px 0;
-    align-items: center;    
+    align-items: center;   
+     
 } 
-
