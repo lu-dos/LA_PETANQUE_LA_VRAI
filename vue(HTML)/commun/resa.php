@@ -36,15 +36,38 @@ footer {
      crossorigin=""></script>
 
      <script>
+        //initialiser la carte
         var carte = L.map('macarte').setView([48.90, 6.18], 8);
 
+        //chaRger la carte
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+            //source de la carte
             attribution: '©️ OpenStreetMap contributors',
+
+            //parametre zoom de la carte
             minZoom: 1,
             maxZoom: 20
         }).addTo(carte);
+
+        //personnaliser le marqueur
+        var icone = L.icon({
+            iconUrl: 'IMG/marqueur.png',
+            iconSize: [50, 50],
+            iconAnchor: [25, 50],})
+ 
+        //mettre un point (marqueur)
+        var marqueur = L.marker([48.90, 6.18]).addTo(carte);
+
+        //ajouter un popup
+        marqueur.bindPopup('<b>Terrain de pétanque</b><br><img src="IMG/terrain_petanque.jpg" alt="Terrain de pétanque" style="width:100px;height:auto;">');
+
+
+
+
     </script>
     
+
 
 </body>
 <footer>
