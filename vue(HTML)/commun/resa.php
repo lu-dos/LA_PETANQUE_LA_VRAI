@@ -52,15 +52,16 @@ footer {
 
         //personnaliser le marqueur
         var icone = L.icon({
-            iconUrl: 'IMG/marqueur.png',
+            iconUrl: '/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
             iconSize: [50, 50],
-            iconAnchor: [25, 50],})
+            iconAnchor: [25, 50],
+            popupAnchor: [0, -50]})
  
         //mettre un point (marqueur)
-        var marqueur = L.marker([48.90, 6.18]).addTo(carte);
+        var marqueur = L.marker([48.90, 6.18], {icon: icone}).addTo(carte);
 
         //ajouter un popup
-        marqueur.bindPopup('<b>Terrain de pétanque</b><br><img src="IMG/terrain_petanque.jpg" alt="Terrain de pétanque" style="width:100px;height:auto;">');
+        marqueur.bindPopup('<b>Terrain de pétanque</b><br><img src="/LA_PETANQUE_LA_VRAI/IMG/terrain_petanque.jpg" alt="Terrain de pétanque" style="width:100px;height:auto;">');
 
 
 
