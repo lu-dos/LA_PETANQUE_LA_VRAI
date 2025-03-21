@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Footer</title>
+    <title>Réserve ton terrain</title>
     <link rel="stylesheet" href="style.css"> 
     <title>Réserve ton terrain</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -11,7 +11,7 @@
 
      <!-- obligé de mettre le css  -->
 
-     
+
 <style>
 #macarte{
 height: 400px;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Inscription</title>
+        <title>Se Connecter</title>
         <base href="/LA_PETANQUE_LA_VRAI/">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta charset="utf-8">
