@@ -1,7 +1,7 @@
 <div class="navbar">
     <div class="links">
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php">Accueil</a>
-            <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa.php">Réserver un Terrain</a>
+            <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réserver un Terrain</a>
             <a href="quisommesnous.php">Qui sommes-nous ?</a>
             <a href="contact.php">Contacter le Créateur</a>
             

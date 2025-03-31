@@ -1,6 +1,6 @@
 <?php
 
-function fliste_terrains($conn){ //F
+function fliste_centres($conn){ //F
     //cette fonction va lire la liste des centres de la table centres de la base de donnee  puis les remplire dans un formormat de liste pour javascript
     $i=0;
     $liste="{";
