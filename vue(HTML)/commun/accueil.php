@@ -22,8 +22,8 @@
 
 
 <ul class="nav-links">
-        <li><a href="#quisommesnous">Qui sommes-nous ?</a></li>
-        <li><a href="#temoignages">Ils parlent de nous</a></li>
+        <li><a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réservation Terrain</a></li>
+        <li><a href="#temoignages">Contacter</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>

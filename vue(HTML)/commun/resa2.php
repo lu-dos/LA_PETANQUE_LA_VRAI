@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname = 'tablepetanque';
-$username = 'root'; 
-$password = '';      
+$username = 'root';
+$password = '';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -22,53 +22,74 @@ try {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Réservation de Terrain</title>
     <link rel="stylesheet" href="rstyle.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <style>
-        #map { height: 600px; width: 100%; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        table, th, td { border: 1px solid black; }
-        th, td { padding: 10px; text-align: left; }
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
+
         .navbar {
             background-color: #333;
             padding: 10px;
             display: flex;
             align-items: center;
-            width: 100%; /* pour que barre de navigation prenne toute la largeur */
+            width: 100%;
+            /* pour que barre de navigation prenne toute la largeur */
         }
+
         .navbar .links {
             display: flex;
-            justify-content: center; /* centrer les liens dans la barre */
+            justify-content: center;
+            /* centrer les liens dans la barre */
         }
+
         .navbar a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
         }
+
         #map {
             height: 600px;
             width: 100%;
         }
     </style>
 </head>
+
 <body>
-<div class="navbar">
-        <div class="links">
-            <a href="accueil.html">Accueil</a>
-            <a href="reservation.php">Réserver un Terrain</a>
-            <a href="contact.php">Contacter le Créateur</a>
-        </div>
-        <a href="login.html">Se Connecter</a>
-        <a href="inscription.html" class="btn-inscription">S'inscrire</a>
-    </div>
+    <?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+    ?>
     <!-- Carte -->
     <div id="map"></div>
 
@@ -96,7 +117,7 @@ try {
                     <td><?= htmlspecialchars($terrain['latitude']) ?></td>
                     <td><?= htmlspecialchars($terrain['longitude']) ?></td>
                     <td>
-                        <a href="modifier.php?id=<?= $terrain['Id_Terrain'] ?>">Modifier</a> | 
+                        <a href="modifier.php?id=<?= $terrain['Id_Terrain'] ?>">Modifier</a> |
                         <a href="supprimer.php?id=<?= $terrain['Id_Terrain'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce terrain ?')">Supprimer</a>
                     </td>
                 </tr>
@@ -105,14 +126,12 @@ try {
     </table>
 
     <!-- Bouton Ajouter -->
-<div style="margin-top: 20px;">
-    <a href="ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
-</div>
+    <div style="margin-top: 20px;">
+        <a href="ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
+    </div>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
-
-        
         // initialisation de la carte 
         var map = L.map('map').setView([48.6921, 6.1844], 10);
 
@@ -120,7 +139,7 @@ try {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        
+
         var icone = L.icon({
             iconUrl: '/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
             iconSize: [50, 50],
@@ -141,4 +160,5 @@ try {
         <li><a href="accueil.php">Retour</a></li>
     </ul>
 </body>
+
 </html>
