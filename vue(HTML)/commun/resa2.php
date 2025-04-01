@@ -1,11 +1,11 @@
 <?php
-$host = 'localhost';
+$servername = 'localhost';
 $dbname = 'tablepetanque';
 $username = 'root';
 $password = '';
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // requete pour recup tous les terrains
@@ -28,6 +28,7 @@ try {
     <title>Réservation de Terrain</title>
     <link rel="stylesheet" href="rstyle.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- #region css -->
     <style>
         #map {
             height: 600px;
@@ -84,12 +85,14 @@ try {
             width: 100%;
         }
     </style>
+    <!-- #endregion -->
 </head>
 
 <body>
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
     ?>
+    <!-- #region Carte -->
     <!-- Carte -->
     <div id="map"></div>
 
@@ -127,7 +130,7 @@ try {
 
     <!-- Bouton Ajouter -->
     <div style="margin-top: 20px;">
-        <a href="ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
+        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
@@ -155,10 +158,13 @@ try {
                 .bindPopup(terrain.nom_terrain);
         });
     </script>
+    <!-- #endregion -->
 
-    <ul>
-        <li><a href="accueil.php">Retour</a></li>
-    </ul>
 </body>
+<footer>
+    <?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
+    ?>
+</footer>
 
 </html>

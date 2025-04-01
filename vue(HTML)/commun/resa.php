@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
 
     <title>Réserve ton terrain</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
 
     <style>
         #macarte {
@@ -64,13 +64,11 @@
 
         //ajouter un popup
         marqueur.bindPopup('<b>Terrain de pétanque</b><br><img src="/LA_PETANQUE_LA_VRAI/IMG/terrain_petanque.jpg" alt="Terrain de pétanque" style="width:100px;height:auto;">');
-
-
     </script>
-<!-- fichiers javascript de leaflet -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <!-- fichiers javascript de leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 </body>
 <footer>
     <?php

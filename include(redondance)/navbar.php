@@ -9,6 +9,12 @@
     <div>
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
+
+        <form method="POST" action="/LA_PETANQUE_LA_VRAI/controleur(PHP)/back_navbar.php">
+            <input type="submit" value="Se Déconnecter" class="logout-button">
+        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
+        </form>
+
     </div>
 
 </div>
