@@ -1,13 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tablepetanque";
 
-$connexion = new mysqli(hostname:$servername , password:$password, username:$username,database:$dbname);
+class db{
 
-if ($connexion->connect_error) {
-    die("Erreur de connexion : " . $connexion->connect_error);
+private $servername = "localhost";
+private $username = "root";
+private $password = "";
+private $dbname = "tablepetanque";
+
+public function __contrcut(){
+    
+$connexion = new mysqli(hostname:$this->servername , password:$this->password, username:$this->username,database:$this->dbname);
 }
 
+}
 ?>

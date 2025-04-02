@@ -7,12 +7,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mdp = $_POST["mdp"];
 }
 
-$check_all = $connexion -> prepare ("SELECT * FROM utilisateur WHERE mail = ? AND mot_de_passe = ?");
+$check_all = $connexion -> prepare ("SELECT Id_utilisateur FROM utilisateur WHERE mail = ? AND mot_de_passe = ?");
 $check_all->bind_param ("ss" , $mail, $mdp);
 $check_all->execute();
 $result = $check_all->get_result();
 
+foreach ($result as $row) {
+    $_SESSION['Id_utilisateur'] = $row['Id_utilisateur'];
 
+
+}
 
 
 
