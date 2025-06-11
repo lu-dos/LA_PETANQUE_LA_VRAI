@@ -31,9 +31,6 @@
 
     <div id="macarte"></div>
 
-    </script>
-
-
     <script>
         //initialiser la carte
         var carte = L.map('macarte').setView([48.90, 6.18], 8);

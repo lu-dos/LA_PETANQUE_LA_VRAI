@@ -1,28 +1,24 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <div class="navbar">
     <div class="links">
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php">Accueil</a>
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réserver un Terrain</a>
         <a href="quisommesnous.php">Qui sommes-nous ?</a>
         <a href="contact.php">Contacter le Créateur</a>
-
     </div>
     <div>
-    
-<?php if (isset($_SESSION['Id_utilisateur'])): ?>
-     <form method="POST" action="/LA_PETANQUE_LA_VRAI/controleur(PHP)/back_navbar.php">
-        <input type="submit" value="Se Déconnecter" class="logout-button">
-        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
-     </form>
-<?php else: ?>
-    <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
-    <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
-<?php endif; ?>
-       
-
+        <?php if (isset($_SESSION['Id_utilisateur'])): ?>
+            <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
+        <?php else: ?>
+            <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
+            <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
+        <?php endif; ?>
     </div>
-
 </div>
-
 <style>
     body,
     html {
