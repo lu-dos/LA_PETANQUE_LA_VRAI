@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<script>alert('Mail deja existant !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
     } else {
         $stmt = $connexion->prepare(
-            "INSERT INTO utilisateur (nom, prenom, mail, ville, grade, mot_de_passe) VALUES (?, ?, ?, ?, 'client', ?)"
+            "INSERT INTO utilisateur (nom, Prenom, mail, ville, grade, mot_de_passe) VALUES (?, ?, ?, ?, 'client', ?)"
         );
         $stmt->bind_param("sssss", $nom, $prenom, $mail, $ville, $mdp);
 
