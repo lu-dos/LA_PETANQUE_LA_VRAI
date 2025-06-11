@@ -1,0 +1,71 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "IMG", "IMG", "{05635d7e-2bb1-40b2-a724-1176ff2ee0bb}"
+    ProjectSection(SolutionItems) = preProject
+        IMG/2686454.png = IMG/2686454.png
+        IMG/Logos resizés - Entreprises (3).png = IMG/Logos resizés - Entreprises (3).png
+        IMG/PIN.png = IMG/PIN.png
+        IMG/PIN.svg = IMG/PIN.svg
+        IMG/Sans titre.jpeg = IMG/Sans titre.jpeg
+        IMG/hero1.jpg = IMG/hero1.jpg
+        IMG/hero2.jpg = IMG/hero2.jpg
+        IMG/hero3.jpg = IMG/hero3.jpg
+        IMG/hero3.png = IMG/hero3.png
+        IMG/pin.jpg = IMG/pin.jpg
+        IMG/terrain_petanque.jpg = IMG/terrain_petanque.jpg
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "css", "css", "{7017af04-1662-4181-8f8e-d1de28c2d2b7}"
+    ProjectSection(SolutionItems) = preProject
+        css/carte.css = css/carte.css
+        css/index.css = css/index.css
+        css/style.css = css/style.css
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "controleur(PHP)", "controleur(PHP)", "{28db38b9-5d07-4203-b674-23dec6e848dc}"
+    ProjectSection(SolutionItems) = preProject
+        controleur(PHP)/back_navbar.php = controleur(PHP)/back_navbar.php
+        controleur(PHP)/traitement_inscription.php = controleur(PHP)/traitement_inscription.php
+        controleur(PHP)/traitement_login.php = controleur(PHP)/traitement_login.php
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "include(redondance)", "include(redondance)", "{3665e7e8-34a0-42e9-9650-3932c0a04fa3}"
+    ProjectSection(SolutionItems) = preProject
+        include(redondance)/footer.php = include(redondance)/footer.php
+        include(redondance)/navbar.php = include(redondance)/navbar.php
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "modele(SQL)", "modele(SQL)", "{673f2943-a2ff-4987-a2ee-2160d5098db0}"
+    ProjectSection(SolutionItems) = preProject
+        modele(SQL)/admin/db.php = modele(SQL)/admin/db.php
+        modele(SQL)/admin/utilisateur.php = modele(SQL)/admin/utilisateur.php
+        modele(SQL)/commun/map.php = modele(SQL)/commun/map.php
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "vue(HTML)", "vue(HTML)", "{eb082012-566f-4454-8ab5-fdfed2786210}"
+    ProjectSection(SolutionItems) = preProject
+        vue(HTML)/admin/ajouter.php = vue(HTML)/admin/ajouter.php
+        vue(HTML)/commun/accueil.php = vue(HTML)/commun/accueil.php
+        vue(HTML)/commun/contact.php = vue(HTML)/commun/contact.php
+        vue(HTML)/commun/inscription.php = vue(HTML)/commun/inscription.php
+        vue(HTML)/commun/login.php = vue(HTML)/commun/login.php
+        vue(HTML)/commun/resa.php = vue(HTML)/commun/resa.php
+        vue(HTML)/commun/resa2.php = vue(HTML)/commun/resa2.php
+    EndProjectSection
+EndProject
+Project("{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") = "Solution Items", "Solution Items", "{85eeaced-7873-4f74-a5df-a8010777b974}"
+    ProjectSection(SolutionItems) = preProject
+        tablepetanque.sql = tablepetanque.sql
+    EndProjectSection
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+EndGlobal
