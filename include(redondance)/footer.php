@@ -14,6 +14,9 @@
     <title>Footer</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<body></body>
+
 <p>© 2025 - Réserver Ta Pétanque .com - Tous droits réservés.</p>
     
 </html>
