@@ -90,7 +90,7 @@ try {
 
 <body>
     <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
     ?>
     <!-- #region Carte -->
     <!-- Carte -->
@@ -130,7 +130,7 @@ try {
 
     <!-- Bouton Ajouter -->
     <div style="margin-top: 20px;">
-        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
@@ -144,7 +144,7 @@ try {
         }).addTo(map);
 
         var icone = L.icon({
-            iconUrl: '/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
+            iconUrl: '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
             iconSize: [50, 50],
             iconAnchor: [25, 50],
             popupAnchor: [0, -50]
@@ -163,7 +163,7 @@ try {
 </body>
 <footer>
     <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
     ?>
 </footer>
 
