@@ -12,9 +12,9 @@
  */
 
 $servername = "localhost";
-$username   = "ludo";
-$password   = "Bonjour123!";
-$dbname     = "ludo_ppe2";
+$username   = "root";
+$password   = "";
+$dbname     = "tablepetanque";
 
 // Create the connection and expose it as $connexion
 $connexion = new mysqli($servername, $username, $password, $dbname);
