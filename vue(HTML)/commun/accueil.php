@@ -29,9 +29,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <div class="social-links">
+      <!-- <div class="social-links">
         <a href="#" class="instagram">Instagram</a>
-      </div>
+      </div> -->
 
 </body>
 
