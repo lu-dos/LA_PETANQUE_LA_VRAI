@@ -2,14 +2,14 @@
 <html lang="fr">
 <head>
 
-        <base href="/LA_PETANQUE_LA_VRAI/">
+        <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <meta charset="utf-8">    
         <title>Réserve ta pétanque Lorraine</title>
     </head>
 <body>
         <?php 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
         ?> 
         
 
@@ -23,7 +23,7 @@
 
 
 <ul class="nav-links">
-        <li><a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réservation Terrain</a></li>
+        <li><a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réservation Terrain</a></li>
         <li><a href="#temoignages">Contacter</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -37,7 +37,7 @@
 
 <footer>
         <?php 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
         ?> 
 </footer>
 

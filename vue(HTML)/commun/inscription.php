@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <title>Inscription</title>
-        <base href="/LA_PETANQUE_LA_VRAI/">
+        <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
         <link rel="stylesheet" type="text/css" href="css/index.css"> 
         <meta charset="utf-8">
 
@@ -17,10 +17,10 @@
     <body>
 
         <?php 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
         ?> 
         
-        <form action="/LA_PETANQUE_LA_VRAI/controleur(PHP)/traitement_inscription.php" method="POST">
+        <form action="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/controleur(PHP)/traitement_inscription.php" method="POST">
             <fieldset>
 
             <legend>Inscription</legend>
@@ -40,7 +40,7 @@
     
     <footer>
         <?php 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
         ?>
     </footer>
 
