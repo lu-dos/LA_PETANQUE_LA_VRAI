@@ -1,16 +1,29 @@
 <?php
 
-class db{
+/**
+ * Simple database configuration file used by the PHP controllers.
+ *
+ * The previous implementation attempted to expose a `$connexion` variable
+ * through a `db` class, but the constructor name was misspelled and the
+ * variable was not returned or exported, resulting in `$connexion` being
+ * `null` in the controllers.  This file now simply initialises a `mysqli`
+ * connection and exposes it via the `$connexion` variable so that the
+ * controllers can include this file directly.
+ */
 
-private $servername = "localhost";
-private $username = "ludo";
-private $password = "Bonjour123!";
-private $dbname = "ludo_ppe2";
+$servername = "localhost";
+$username   = "ludo";
+$password   = "Bonjour123!";
+$dbname     = "ludo_ppe2";
 
-public function __contrcut(){
-    
-$connexion = new mysqli(hostname:$this->servername , password:$this->password, username:$this->username,database:$this->dbname);
+// Create the connection and expose it as $connexion
+$connexion = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection errors and throw a descriptive exception if needed
+if ($connexion->connect_error) {
+    throw new \RuntimeException(
+        "Database connection failed: " . $connexion->connect_error
+    );
 }
 
-}
 ?>
