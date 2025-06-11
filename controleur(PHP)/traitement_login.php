@@ -12,19 +12,11 @@ $check_all->bind_param ("ss" , $mail, $mdp);
 $check_all->execute();
 $result = $check_all->get_result();
 
-if (!($result === false)) {
-       $_SESSION['Id_utilisateur'] = $row['Id_utilisateur'];
+foreach ($result as $row) {
+    $_SESSION['Id_utilisateur'] = $row['Id_utilisateur'];
 
 
- 
 }
-    else{
- $_SESSION['Id_utilisateur'] = 0;
-exit();
-    
-}
-foreach ($result as $row) 
-
 
 
 
