@@ -1,29 +1,16 @@
 <?php
-class db {
-    private $servername = 'localhost';
-    private $username = 'ludo';
-    private $password = 'Bonjour123!';
-    private $dbname = 'ludo_ppe2';
-    private $connexion;
 
-    public function __construct() {
-        $this->connexion = new mysqli(
-            $this->servername,
-            $this->username,
-            $this->password,
-            $this->dbname
-        );
+class db{
 
-        if ($this->connexion->connect_error) {
-            die('Connection failed: ' . $this->connexion->connect_error);
-        }
-    }
+private $servername = "localhost";
+private $username = "ludo";
+private $password = "Bonjour123!";
+private $dbname = "ludo_ppe2";
 
-    public function getConnection() {
-        return $this->connexion;
-    }
+public function __contrcut(){
+    
+$connexion = new mysqli(hostname:$this->servername , password:$this->password, username:$this->username,database:$this->dbname);
 }
 
-// Crée une connexion lorsqu'on inclut ce fichier
-$connexion = (new db())->getConnection();
+}
 ?>

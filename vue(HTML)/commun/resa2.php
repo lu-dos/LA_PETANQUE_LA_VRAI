@@ -26,7 +26,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Réservation de Terrain</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="rstyle.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <!-- #region css -->
     <style>
