@@ -3,9 +3,9 @@
 class db{
 
 private $servername = "localhost";
-private $username = "root";
-private $password = "";
-private $dbname = "tablepetanque";
+private $username = "ludo";
+private $password = "Bonjour123!";
+private $dbname = "ludo_ppe2";
 
 public function __contrcut(){
     

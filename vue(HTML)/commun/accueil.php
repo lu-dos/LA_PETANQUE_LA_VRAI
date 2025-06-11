@@ -11,6 +11,10 @@
         <?php 
         require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
         ?> 
+<?php 
+       $oui= $_SESSION['Id_utilisateur'] ;
+        ?> 
+        
 
 <section class="hero">
     <h1>Réserve ta pétanque .com</h1>

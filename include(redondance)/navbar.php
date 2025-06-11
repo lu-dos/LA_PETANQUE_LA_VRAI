@@ -7,6 +7,9 @@
 
     </div>
     <div>
+    
+    <?php if (isset($_SESSION['Id_utilisateur'])): ?>
+
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
 
@@ -14,7 +17,10 @@
             <input type="submit" value="Se Déconnecter" class="logout-button">
         <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
         </form>
+<?php endif; ?>
 
+        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
+        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
     </div>
 
 </div>
