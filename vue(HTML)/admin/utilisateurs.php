@@ -78,6 +78,7 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
+<div class="container">
 <h1>Gestion des Utilisateurs</h1>
 
 <h2><?php echo $editUser ? 'Modifier un utilisateur' : 'Ajouter un utilisateur'; ?></h2>
@@ -131,6 +132,7 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
     </tbody>
 </table>
+</div>
 </body>
 <footer>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
