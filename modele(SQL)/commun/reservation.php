@@ -52,4 +52,18 @@ function getReservationsForUser(PDO $pdo, $userId) {
     $stmt->execute([':user' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+/**
+ * Delete a reservation belonging to a specific user.
+ *
+ * @param PDO    $pdo  Database connection
+ * @param string $id   Reservation identifier
+ * @param int    $user User identifier
+ *
+ * @return bool        True on success
+ */
+function deleteReservation(PDO $pdo, $id, $user) {
+    $stmt = $pdo->prepare('DELETE FROM reservation WHERE Id_reservation = :id AND Id_utilisateur = :user');
+    return $stmt->execute([':id' => $id, ':user' => $user]);
+}
 ?>
