@@ -27,7 +27,7 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <title>Gestion des réservations</title>
     <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/css/index.css">
 </head>
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
