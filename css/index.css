@@ -158,6 +158,26 @@ th {
     background-color: #f8f9fa;
 }
 
+/* Zebra stripe rows for better readability */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Basic button style for links acting as buttons */
+a.button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+
 .container {
     max-width: 800px;
     width: 100%;
