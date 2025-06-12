@@ -32,6 +32,7 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
 <div class="container">
 <h1>Gestion des réservations</h1>
+<div class="card">
 <table>
     <thead>
         <tr>
@@ -58,6 +59,7 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
     </tbody>
 </table>
+</div>
 </div>
 </body>
 <footer>

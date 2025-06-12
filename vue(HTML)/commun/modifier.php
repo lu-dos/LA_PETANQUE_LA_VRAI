@@ -77,6 +77,7 @@ if (!$terrain) {
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
 <div class="container">
 <h1>Modifier le terrain</h1>
+<div class="card">
 <form method="POST" action="">
     <label for="ville">Ville :</label>
     <input type="text" id="ville" name="ville" value="<?= htmlspecialchars($terrain['ville']) ?>" required><br>
@@ -107,6 +108,7 @@ if (!$terrain) {
 
     <button class="button" type="submit">Mettre à jour</button>
 </form>
+</div>
 </div>
 </body>
 <footer>
