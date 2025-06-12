@@ -38,7 +38,7 @@ if (isset($_GET['edit'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom    = trim($_POST['nom']);
-    $prenom = trim($_POST['prenom']);
+    $prenom = trim($_POST['Prenom']);
     $mail   = trim($_POST['mail']);
     $ville  = trim($_POST['ville']);
     $isAdmin = isset($_POST['isAdmin']) ? 1 : 0;
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($_POST['action'] === 'update' && !empty($_POST['id'])) {
         $id = (int)$_POST['id'];
         $fields = ['nom' => $nom, 'Prenom' => $prenom, 'mail' => $mail, 'ville' => $ville, 'isAdmin' => $isAdmin];
-        $sql = 'UPDATE utilisateur SET nom=:nom, Prenom=:prenom, mail=:mail, ville=:ville, isAdmin=:isAdmin';
+        $sql = 'UPDATE utilisateur SET nom=:nom, Prenom=:Prenom, mail=:mail, ville=:ville, isAdmin=:isAdmin';
         if (!empty($_POST['mdp'])) {
             $fields['mot_de_passe'] = password_hash(trim($_POST['mdp']), PASSWORD_DEFAULT);
             $sql .= ', mot_de_passe=:mot_de_passe';
@@ -89,7 +89,7 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <label>Nom</label>
     <input type="text" name="nom" value="<?php echo $editUser ? htmlspecialchars($editUser['nom']) : ''; ?>" required><br>
     <label>Prénom</label>
-    <input type="text" name="prenom" value="<?php echo $editUser ? htmlspecialchars($editUser['Prenom']) : ''; ?>" required><br>
+    <input type="text" name="Prenom" value="<?php echo $editUser ? htmlspecialchars($editUser['Prenom']) : ''; ?>" required><br>
     <label>Mail</label>
     <input type="email" name="mail" value="<?php echo $editUser ? htmlspecialchars($editUser['mail']) : ''; ?>" required><br>
     <label>Ville</label>
