@@ -49,6 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
+<div class="container">
+<div class="card">
 <h1>Réserver le terrain: <?= htmlspecialchars($terrain['nom_terrain']) ?></h1>
 <?php if ($message) echo '<p>' . htmlspecialchars($message) . '</p>'; ?>
 <form method="POST">
@@ -58,8 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="datetime-local" id="date_fin" name="date_fin" required><br>
     <label for="nbr_util">Nombre d\'utilisateurs</label>
     <input type="number" id="nbr_util" name="nbr_util" value="1" min="1" required><br>
-    <button type="submit">Réserver</button>
+    <button class="button" type="submit">Réserver</button>
 </form>
+</div>
+</div>
 </body>
 <footer>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>

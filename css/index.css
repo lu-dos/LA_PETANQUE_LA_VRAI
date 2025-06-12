@@ -155,12 +155,17 @@ th, td {
 }
 
 th {
-    background-color: #f8f9fa;
+    background-color: #343a40;
+    color: #ffffff;
 }
 
 /* Zebra stripe rows for better readability */
 tbody tr:nth-child(odd) {
     background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
 }
 
 /* Basic button style for links acting as buttons */
@@ -182,4 +187,19 @@ a.button:hover {
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }

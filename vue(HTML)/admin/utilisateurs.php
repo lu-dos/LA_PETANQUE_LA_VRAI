@@ -82,6 +82,7 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h1>Gestion des Utilisateurs</h1>
 
 <h2><?php echo $editUser ? 'Modifier un utilisateur' : 'Ajouter un utilisateur'; ?></h2>
+<div class="card">
 <form method="POST" action="">
     <input type="hidden" name="action" value="<?php echo $editUser ? 'update' : 'add'; ?>">
     <?php if ($editUser): ?>
@@ -101,8 +102,10 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <input type="checkbox" name="isAdmin" value="1" <?php if ($editUser && $editUser['isAdmin']) echo 'checked'; ?>><br>
     <input type="submit" value="<?php echo $editUser ? 'Mettre à jour' : 'Ajouter'; ?>">
 </form>
+</div>
 
 <h2>Liste des utilisateurs</h2>
+<div class="card">
 <table>
     <thead>
         <tr>
@@ -133,6 +136,9 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
     </tbody>
 </table>
+</div>
+<p style="text-align:center;">Nombre d'utilisateurs : <?php echo count($utilisateurs); ?>.</p>
+<p style="text-align:center;">Pour toute question, <a href="vue(HTML)/commun/contact.php">contactez le créateur</a>.</p>
 </div>
 </body>
 <footer>

@@ -9,6 +9,7 @@
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
     <div class="container">
+        <div class="card">
         <h1>Contacter le Créateur</h1>
         <p>N'hésitez pas à nous laisser un message pour toute question ou suggestion.</p>
         <form action="traitement_contact.php" method="POST">
@@ -23,6 +24,7 @@
 
             <button class="button" type="submit">Envoyer</button>
         </form>
+        </div>
     </div>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>
