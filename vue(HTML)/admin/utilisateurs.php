@@ -125,8 +125,9 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo htmlspecialchars($u['ville']); ?></td>
             <td><?php echo $u['isAdmin'] ? 'Oui' : 'Non'; ?></td>
             <td>
-                <a href="vue(HTML)/admin/utilisateurs.php?edit=<?php echo $u['Id_utilisateur']; ?>">Modifier</a> |
-                <a href="vue(HTML)/admin/utilisateurs.php?delete=<?php echo $u['Id_utilisateur']; ?>" onclick="return confirm('Supprimer cet utilisateur ?');">Supprimer</a>
+                <a class="button" href="vue(HTML)/admin/utilisateurs.php?edit=<?php echo $u['Id_utilisateur']; ?>">Modifier</a>
+                |
+                <a class="button" href="vue(HTML)/admin/utilisateurs.php?delete=<?php echo $u['Id_utilisateur']; ?>" onclick="return confirm('Supprimer cet utilisateur ?');">Supprimer</a>
             </td>
         </tr>
     <?php endforeach; ?>

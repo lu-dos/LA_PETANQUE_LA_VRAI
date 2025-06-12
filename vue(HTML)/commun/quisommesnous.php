@@ -10,7 +10,8 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
 <div class="container">
     <h1>Qui sommes-nous ?</h1>
-    <p>Ce site a été réalisé par des passionnés de pétanque afin de faciliter la réservation des terrains et de faire découvrir les meilleurs endroits de la région.</p>
+    <p>Passionnés de pétanque, nous avons créé ce site pour partager notre amour du jeu et aider la communauté à trouver facilement des terrains disponibles.</p>
+    <p>Notre équipe regroupe des joueurs de tout niveau souhaitant promouvoir ce sport convivial dans toute la région.</p>
 </div>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>

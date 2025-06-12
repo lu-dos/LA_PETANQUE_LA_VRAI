@@ -105,7 +105,7 @@ if (!$terrain) {
     <label for="latitude">Latitude :</label>
     <input type="text" id="latitude" name="latitude" value="<?= htmlspecialchars($terrain['latitude']) ?>" required><br>
 
-    <button type="submit">Mettre à jour</button>
+    <button class="button" type="submit">Mettre à jour</button>
 </form>
 </div>
 </body>

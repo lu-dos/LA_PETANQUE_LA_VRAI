@@ -51,7 +51,9 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             <td><?= htmlspecialchars($r['date_fin']) ?></td>
             <td><?= htmlspecialchars($r['nom'] . ' ' . $r['Prenom']) ?></td>
             <td><?= htmlspecialchars($r['nbr_util']) ?></td>
-            <td><a href="reservations.php?delete=<?= $r['Id_reservation'] ?>" onclick="return confirm('Supprimer ?');">Supprimer</a></td>
+            <td>
+                <a class="button" href="reservations.php?delete=<?= $r['Id_reservation'] ?>" onclick="return confirm('Supprimer ?');">Supprimer</a>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
