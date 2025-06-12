@@ -111,6 +111,7 @@ try {
                 <th>Note</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
+                <th>Réserver</th>
                 <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
                     <th>Actions</th>
                 <?php endif; ?>
@@ -126,6 +127,7 @@ try {
                     <td><?= htmlspecialchars($terrain['note']) ?></td>
                     <td><?= htmlspecialchars($terrain['latitude']) ?></td>
                     <td><?= htmlspecialchars($terrain['longitude']) ?></td>
+                    <td><a href="reserver.php?id=<?= $terrain['Id_Terrain'] ?>">Réserver</a></td>
                     <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
                     <td>
                         <a href="modifier.php?id=<?= $terrain['Id_Terrain'] ?>">Modifier</a> |

@@ -12,6 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réserver un Terrain</a>
         <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/utilisateurs.php">Gérer les utilisateurs</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/reservations.php">Gérer les réservations</a>
         <?php endif; ?>
         <a href="quisommesnous.php">Qui sommes-nous ?</a>
         <a href="contact.php">Contacter le Créateur</a>
