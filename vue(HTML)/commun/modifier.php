@@ -71,7 +71,8 @@ if (!$terrain) {
 <head>
     <meta charset="UTF-8">
     <title>Modifier le terrain</title>
-    <link rel="stylesheet"  href="../css/index.css">
+    <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
