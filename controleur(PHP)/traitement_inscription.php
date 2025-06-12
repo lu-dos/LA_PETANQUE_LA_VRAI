@@ -1,7 +1,7 @@
 <?php
 
 
-include $_SERVER['DOCUMENT_ROOT'] . "/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/db.php" ;
+include $_SERVER['DOCUMENT_ROOT'] . "/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/db.php" ;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = trim($_POST["nom"]);
@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if($result->num_rows > 0){
-        echo"<script>alert('Mail deja existant !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
+        echo"<script>alert('Mail deja existant !');window.location.href = '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
     }else{
         $stmt=$connexion->prepare("INSERT INTO utilisateur (nom,prenom,mail,ville,mot_de_passe,isClient,isAdmin) VALUES (?,?,?,?,?,?,?)");
         $isClient = 1;
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sssssss",$nom,$prenom,$mail,$ville,$mdp,$isClient,$isAdmin);
     
     if($stmt->execute()){
-        echo"<script>alert('Inscrition réussie, vous pouvez maintenant vous connecter !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php';</script>";
+        echo"<script>alert('Inscrition réussie, vous pouvez maintenant vous connecter !');window.location.href = '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php';</script>";
     }
     else{
-        echo"<script>alert('Inscription échouée !');window.location.href = '/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
+        echo"<script>alert('Inscription échouée !');window.location.href = '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/index.php';</script>";
     }
 
     $stmt->close();

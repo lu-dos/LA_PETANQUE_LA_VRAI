@@ -1,4 +1,9 @@
 <?php
+// Initialise the session to check user privileges
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $servername = 'localhost';
 $dbname = 'tablepetanque';
 $username = 'root';
@@ -90,7 +95,7 @@ try {
 
 <body>
     <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
     ?>
     <!-- #region Carte -->
     <!-- Carte -->
@@ -106,7 +111,9 @@ try {
                 <th>Note</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
-                <th>Actions</th>
+                <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
+                    <th>Actions</th>
+                <?php endif; ?>
             </tr>
         </thead>
         <tbody>
@@ -119,19 +126,23 @@ try {
                     <td><?= htmlspecialchars($terrain['note']) ?></td>
                     <td><?= htmlspecialchars($terrain['latitude']) ?></td>
                     <td><?= htmlspecialchars($terrain['longitude']) ?></td>
+                    <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
                     <td>
                         <a href="modifier.php?id=<?= $terrain['Id_Terrain'] ?>">Modifier</a> |
                         <a href="supprimer.php?id=<?= $terrain['Id_Terrain'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce terrain ?')">Supprimer</a>
                     </td>
+                    <?php endif; ?>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
     <!-- Bouton Ajouter -->
+    <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
     <div style="margin-top: 20px;">
-        <a href="/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter un Terrain</a>
     </div>
+    <?php endif; ?>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
@@ -144,7 +155,7 @@ try {
         }).addTo(map);
 
         var icone = L.icon({
-            iconUrl: '/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
+            iconUrl: '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/IMG/PIN.svg',
             iconSize: [50, 50],
             iconAnchor: [25, 50],
             popupAnchor: [0, -50]
@@ -163,7 +174,7 @@ try {
 </body>
 <footer>
     <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php');
     ?>
 </footer>
 

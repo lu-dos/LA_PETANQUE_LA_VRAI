@@ -99,8 +99,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Prenom` varchar(50) DEFAULT NULL,
   `mail` varchar(50) DEFAULT NULL,
   `ville` varchar(50) DEFAULT NULL,
-  `grade` enum('admin','client') NOT NULL DEFAULT 'client',
   `mot_de_passe` varchar(255) NOT NULL,
+  `isClient` tinyint(1) NOT NULL DEFAULT 1,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id_utilisateur`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -108,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`Id_utilisateur`, `nom`, `Prenom`, `mail`, `ville`, `grade`, `mot_de_passe`) VALUES
-(1, 'rouge', 'admin', 'admin@gmail.com', 'nancy', 'admin', 'admin');
+INSERT INTO `utilisateur` (`Id_utilisateur`, `nom`, `Prenom`, `mail`, `ville`, `mot_de_passe`, `isClient`, `isAdmin`) VALUES
+(1, 'rouge', 'admin', 'admin@gmail.com', 'nancy', 'admin', 0, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
