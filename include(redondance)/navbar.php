@@ -15,17 +15,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
     </div>
     <div>
-    
+
 <?php if (isset($_SESSION['Id_utilisateur'])): ?>
-     <form method="POST" action="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/controleur(PHP)/back_navbar.php">
-        <input type="submit" value="Se Déconnecter" class="logout-button">
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
-     </form>
+    <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
 <?php else: ?>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
 <?php endif; ?>
-       
 
     </div>
 
