@@ -1,4 +1,13 @@
 <?php
+// Restrict page access to administrators only
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+    header('Location: /E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php');
+    exit();
+}
+
 // Connexion à la base de données
 $servername = 'localhost';
 $username = 'root';

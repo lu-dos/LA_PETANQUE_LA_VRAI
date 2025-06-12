@@ -1,3 +1,11 @@
+<?php
+// Ensure a session is started so that authentication
+// information like `Id_utilisateur` and `isAdmin` is
+// available to all views including this navbar.
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <div class="navbar">
     <div class="links">
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php">Accueil</a>

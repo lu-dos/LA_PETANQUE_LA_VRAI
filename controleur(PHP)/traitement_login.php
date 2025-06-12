@@ -1,4 +1,9 @@
 <?php
+// Start or resume the session so we can store the
+// authenticated user information.
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 include $_SERVER['DOCUMENT_ROOT'] . "/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/db.php" ;
 
@@ -7,15 +12,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mdp = $_POST["mdp"];
 }
 
-$check_all = $connexion -> prepare ("SELECT Id_utilisateur FROM utilisateur WHERE mail = ? AND mot_de_passe = ?");
-$check_all->bind_param ("ss" , $mail, $mdp);
+$check_all = $connexion->prepare(
+    "SELECT Id_utilisateur, isAdmin FROM utilisateur WHERE mail = ? AND mot_de_passe = ?"
+);
+$check_all->bind_param("ss", $mail, $mdp);
 $check_all->execute();
 $result = $check_all->get_result();
 
 foreach ($result as $row) {
     $_SESSION['Id_utilisateur'] = $row['Id_utilisateur'];
-
-
+    $_SESSION['isAdmin'] = (int) $row['isAdmin'];
 }
 
 
