@@ -21,13 +21,9 @@
 <img src="IMG/hero3.png" alt="Terrain de pétanque 2">
 </section>
 
-
-<ul class="nav-links">
-        <li><a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réservation Terrain</a></li>
-        <li><a href="#temoignages">Contacter</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<section class="presentation">
+    <p>Bienvenue sur <strong>Réserve ta pétanque</strong>, votre site pour trouver et réserver facilement un terrain de pétanque en Lorraine. Connectez-vous pour consulter la liste des terrains disponibles et gérer vos réservations.</p>
+</section>
 
       <!-- <div class="social-links">
         <a href="#" class="instagram">Instagram</a>
