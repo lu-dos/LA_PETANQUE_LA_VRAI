@@ -73,6 +73,7 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Utilisateurs</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>

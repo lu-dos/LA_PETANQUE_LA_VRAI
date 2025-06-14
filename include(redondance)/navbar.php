@@ -82,4 +82,21 @@ if (session_status() === PHP_SESSION_NONE) {
         background-color: #555;
         border-radius: 5px;
     }
+
+    @media (max-width: 600px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar .links {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .navbar a,
+        .logout-button {
+            margin: 10px 0;
+        }
+    }
 </style>

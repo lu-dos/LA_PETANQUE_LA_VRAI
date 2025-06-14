@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/">
     <title>Qui sommes-nous ?</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
