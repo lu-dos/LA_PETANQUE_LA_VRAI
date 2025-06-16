@@ -8,32 +8,26 @@ function fetchTotalUsers(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
 }
 
-/**
- * Retrieve the number of administrators.
- */
+
 function fetchTotalAdmins(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM utilisateur WHERE isAdmin = 1')->fetchColumn();
 }
 
-/**
- * Retrieve the number of terrains.
- */
+
 function fetchTotalTerrains(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM terrain')->fetchColumn();
 }
 
-/**
- * Retrieve how many terrains have at least one reservation.
- */
+
 function fetchReservedTerrains(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(DISTINCT Id_Terrain) FROM reservation')->fetchColumn();
 }
 
 /**
- * Retrieve the list of most represented cities ordered by user count.
+
  *
- * @param PDO $pdo       Database connection
- * @param int $limit     Maximum number of cities to retrieve
+ * @param PDO $pdo       
+ * @param int $limit     
  *
  * @return array{ville:string,nbr:int}[]
  */
@@ -42,12 +36,12 @@ function fetchTopCities(PDO $pdo, int $limit = 5): array {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
 /**
- * Retrieve the users who made the most reservations.
- *
- * @param PDO $pdo   Database connection
- * @param int $limit Maximum number of users
+ * @param PDO $pdo  
+ * @param int $limit 
  */
+
 function fetchTopReservers(PDO $pdo, int $limit = 5): array {
     $sql = 'SELECT u.nom, u.Prenom, COUNT(r.Id_reservation) AS nbr
             FROM utilisateur u
