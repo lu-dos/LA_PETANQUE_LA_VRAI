@@ -12,6 +12,11 @@ $pdo = getPDO();
 $totalUsers = $pdo->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
 $totalAdmins = $pdo->query('SELECT COUNT(*) FROM utilisateur WHERE isAdmin = 1')->fetchColumn();
 
+// Terrains statistics
+$totalTerrains = $pdo->query('SELECT COUNT(*) FROM terrain')->fetchColumn();
+$reservedTerrains = $pdo->query('SELECT COUNT(DISTINCT Id_Terrain) FROM reservation')->fetchColumn();
+$percentReserved = $totalTerrains > 0 ? round($reservedTerrains / $totalTerrains * 100, 2) : 0;
+
 $citiesStmt = $pdo->query('SELECT ville, COUNT(*) AS nbr FROM utilisateur GROUP BY ville ORDER BY nbr DESC LIMIT 5');
 $cities = $citiesStmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -38,6 +43,14 @@ $reservers = $resStmt->fetchAll(PDO::FETCH_ASSOC);
         <p>Nombre total d'utilisateurs : <?= htmlspecialchars($totalUsers) ?></p>
         <p>Nombre d'administrateurs : <?= htmlspecialchars($totalAdmins) ?></p>
     </div>
+
+    <h2>Statistiques Terrains</h2>
+    <div class="card">
+        <p>Nombre total de terrains : <?= htmlspecialchars($totalTerrains) ?></p>
+        <p>Terrains réservés : <?= htmlspecialchars($reservedTerrains) ?></p>
+        <p>Pourcentage de terrains réservés : <?= htmlspecialchars($percentReserved) ?>%</p>
+    </div>
+
     <h2>Villes les plus représentées</h2>
     <div class="card">
         <table>
