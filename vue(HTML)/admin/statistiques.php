@@ -28,6 +28,9 @@ $cities = $citiesStmt->fetchAll(PDO::FETCH_ASSOC);
 $resStmt = $pdo->query('SELECT u.nom, u.Prenom, COUNT(r.Id_reservation) AS nbr FROM utilisateur u LEFT JOIN reservation r ON u.Id_utilisateur = r.Id_utilisateur GROUP BY u.Id_utilisateur ORDER BY nbr DESC LIMIT 5');
 $reservers = $resStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
