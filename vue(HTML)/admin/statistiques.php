@@ -6,18 +6,8 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     header('Location: /E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php');
     exit();
 }
-
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'tablepetanque';
-
-try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Erreur de connexion : ' . $e->getMessage());
-}
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+$pdo = getPDO();
 
 $totalUsers = $pdo->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
 $totalAdmins = $pdo->query('SELECT COUNT(*) FROM utilisateur WHERE isAdmin = 1')->fetchColumn();

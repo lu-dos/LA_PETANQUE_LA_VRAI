@@ -4,14 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$servername = 'localhost';
-$dbname = 'tablepetanque';
-$username = 'root';
-$password = '';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = getPDO();
 
     // requete pour recup tous les terrains
     $sql = "SELECT * FROM terrain";
