@@ -24,6 +24,20 @@ function fetchReservedTerrains(PDO $pdo): int {
 }
 
 /**
+ * Calculate the occupancy rate of the terrains.
+ *
+ * @return float Ratio of reserved terrains to total terrains
+ */
+function tauxOccupationTerrain(PDO $pdo): float {
+    $total    = fetchTotalTerrains($pdo);
+    if ($total === 0) {
+        return 0.0;
+    }
+    $reserved = fetchReservedTerrains($pdo);
+    return $reserved / $total;
+}
+
+/**
 
  *
  * @param PDO $pdo       

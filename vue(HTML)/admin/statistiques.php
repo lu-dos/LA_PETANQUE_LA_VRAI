@@ -14,9 +14,10 @@ $totalUsers      = fetchTotalUsers($pdo);
 $totalAdmins     = fetchTotalAdmins($pdo);
 
 // Terrains statistics
-$totalTerrains   = fetchTotalTerrains($pdo);
+$totalTerrains    = fetchTotalTerrains($pdo);
 $reservedTerrains = fetchReservedTerrains($pdo);
-$percentReserved  = $totalTerrains > 0 ? round($reservedTerrains / $totalTerrains * 100, 2) : 0;
+$occupationRate   = tauxOccupationTerrain($pdo);
+$percentReserved  = round($occupationRate * 100, 2);
 
 $cities     = fetchTopCities($pdo, 5);
 $reservers  = fetchTopReservers($pdo, 5);
