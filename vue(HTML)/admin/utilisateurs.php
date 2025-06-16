@@ -9,17 +9,8 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 }
 
 // Database connection
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'tablepetanque';
-
-try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Erreur de connexion : ' . $e->getMessage());
-}
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+$pdo = getPDO();
 
 // Delete user
 if (isset($_GET['delete'])) {

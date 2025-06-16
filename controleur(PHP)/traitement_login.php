@@ -5,7 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include $_SERVER['DOCUMENT_ROOT'] . "/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/db.php" ;
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+$pdo = getPDO();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = $_POST["mail"] ?? '';
@@ -14,13 +15,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Retrieve user info by email only. We'll verify the password manually so that
 // both hashed and legacy plain text passwords are supported.
-$stmt = $connexion->prepare(
+$stmt = $pdo->prepare(
     "SELECT Id_utilisateur, mot_de_passe, isAdmin FROM utilisateur WHERE mail = ?"
 );
-$stmt->bind_param("s", $mail);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
+$stmt->execute([$mail]);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $authenticated = false;
 if ($row) {
@@ -32,7 +31,6 @@ if ($row) {
         $authenticated = true;
     }
 }
-$stmt->close();
 
 if($authenticated){
     echo"<script>alert('Connexion réussie !');window.location.href = '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php';</script>";

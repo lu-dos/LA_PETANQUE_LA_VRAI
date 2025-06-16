@@ -1,7 +1,7 @@
 <?php
 /* ───────── Connexion BDD ───────── */
-include $_SERVER['DOCUMENT_ROOT'] .
-        "/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/db.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+$pdo = getPDO();
 
 /* ───────── Formulaire soumis ? ───────── */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,16 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mdp    = password_hash(trim($_POST["mdp"]), PASSWORD_DEFAULT); // hachage
 
     /* ───── Vérifier l'unicité de l'email ───── */
-    $check_mail = $connexion->prepare(
-        "SELECT Id_utilisateur
-           FROM utilisateur
-          WHERE mail = ?"
+    $check_mail = $pdo->prepare(
+        "SELECT Id_utilisateur FROM utilisateur WHERE mail = ?"
     );
-    $check_mail->bind_param("s", $mail);
-    $check_mail->execute();
-    $result = $check_mail->get_result();
-
-    if ($result->num_rows > 0) {
+    $check_mail->execute([$mail]);
+    $result = $check_mail->fetch(PDO::FETCH_ASSOC);
+    if ($result) {
         /* Mail déjà pris → retour accueil */
         echo "<script>
                 alert('Adresse e-mail déjà utilisée !');
@@ -34,19 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     /* ───── Insertion du nouvel utilisateur ───── */
-    $stmt = $connexion->prepare(
-        "INSERT INTO utilisateur
-             (nom, prenom, mail, ville, isAdmin, mot_de_passe)
-         VALUES (?,?,?,?,?,?)"
+    $stmt = $pdo->prepare(
+        "INSERT INTO utilisateur (nom, prenom, mail, ville, isAdmin, mot_de_passe) VALUES (?,?,?,?,?,?)"
     );
 
-    $isAdmin = 0;                 // 0 = simple utilisateur, 1 = admin
-    $stmt->bind_param(
-        "ssssis",
-        $nom, $prenom, $mail, $ville, $isAdmin, $mdp
-    );
+    $isAdmin = 0; // 0 = simple utilisateur, 1 = admin
 
-    if ($stmt->execute()) {
+    if ($stmt->execute([$nom, $prenom, $mail, $ville, $isAdmin, $mdp])) {
         echo "<script>
                 alert('Inscription réussie, vous pouvez maintenant vous connecter !');
                 window.location.href =
@@ -60,9 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </script>";
     }
 
-    $stmt->close();
-    $check_mail->close();
+    $check_mail = null;
+    $stmt = null;
 }
-
-$connexion->close();
+$pdo = null;
 ?>
