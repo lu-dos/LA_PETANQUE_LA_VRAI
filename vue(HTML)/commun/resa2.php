@@ -4,10 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+require_once dirname(__DIR__, 2) . '/include(redondance)/init.php';
 
 try {
-    $conn = getPDO();
+    $conn = $pdo;
 
     // requete pour recup tous les terrains
     $sql = "SELECT * FROM terrain";

@@ -5,8 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
-$pdo = getPDO();
+require_once dirname(__DIR__) . '/include(redondance)/init.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = $_POST["mail"] ?? '';

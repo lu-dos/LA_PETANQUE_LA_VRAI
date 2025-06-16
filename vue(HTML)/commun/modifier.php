@@ -15,8 +15,7 @@ if (empty($_GET['id'])) {
 
 $terrainId = $_GET['id'];
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
-$pdo = getPDO();
+require_once dirname(__DIR__, 2) . '/include(redondance)/init.php';
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

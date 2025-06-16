@@ -9,8 +9,7 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 }
 
 // Database connection
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
-$pdo = getPDO();
+require_once dirname(__DIR__, 2) . '/include(redondance)/init.php';
 
 // Delete user
 if (isset($_GET['delete'])) {
