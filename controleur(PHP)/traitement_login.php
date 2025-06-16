@@ -16,7 +16,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 // Retrieve user info by email only. We'll verify the password manually so that
 // both hashed and legacy plain text passwords are supported.
 $stmt = $pdo->prepare(
-    "SELECT Id_utilisateur, mot_de_passe, isAdmin FROM utilisateur WHERE mail = ?"
+    "SELECT Id_utilisateur, nom, Prenom, mot_de_passe, isAdmin
+     FROM utilisateur WHERE mail = ?"
 );
 $stmt->execute([$mail]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -27,6 +28,8 @@ if ($row) {
     // comparison for older accounts stored in plain text.
     if (password_verify($mdp, $row['mot_de_passe']) || $mdp === $row['mot_de_passe']) {
         $_SESSION['Id_utilisateur'] = $row['Id_utilisateur'];
+        $_SESSION['nom'] = $row['nom'];
+        $_SESSION['Prenom'] = $row['Prenom'];
         $_SESSION['isAdmin'] = (int) $row['isAdmin'];
         $authenticated = true;
     }

@@ -27,8 +27,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
     </div>
     <div>
-    
+
 <?php if (isset($_SESSION['Id_utilisateur'])): ?>
+    <span class="user-info">
+        <?= htmlspecialchars($_SESSION['Prenom'] . ' ' . $_SESSION['nom']) ?>
+        (<?= $_SESSION['isAdmin'] == 1 ? 'Admin' : 'Utilisateur' ?>)
+    </span>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
 <?php else: ?>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
@@ -63,11 +67,13 @@ if (session_status() === PHP_SESSION_NONE) {
     }
 
     .navbar a,
-    .logout-button {
+    .logout-button,
+    .user-info {
         color: white;
         margin: 0 15px;
         text-decoration: none;
         font-size: 17px;
+        display: inline-block;
     }
 
     .logout-button {
