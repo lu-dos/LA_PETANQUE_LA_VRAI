@@ -1,19 +1,22 @@
 <?php
+// Démarre la session si elle n'est pas déjà démarrée
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+// Redirige si l'utilisateur n'est pas administrateur
 if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     header('Location: /E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php');
     exit();
 }
+// Inclut les fonctions de statistiques
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/statistiques.php';
 $pdo = getPDO();
 
-// Fetch all needed statistics through dedicated helper functions
+// Récupère toutes les statistiques nécessaires via les fonctions dédiées
 $totalUsers      = fetchTotalUsers($pdo);
 $totalAdmins     = fetchTotalAdmins($pdo);
 
-// Terrains statistics
+// Statistiques sur les terrains
 $totalTerrains    = fetchTotalTerrains($pdo);
 $reservedTerrains = fetchReservedTerrains($pdo);
 $occupationRate   = tauxOccupationTerrain($pdo);
