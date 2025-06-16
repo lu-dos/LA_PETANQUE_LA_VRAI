@@ -6,22 +6,20 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     header('Location: /E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php');
     exit();
 }
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/statistiques.php';
 $pdo = getPDO();
 
-$totalUsers = $pdo->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
-$totalAdmins = $pdo->query('SELECT COUNT(*) FROM utilisateur WHERE isAdmin = 1')->fetchColumn();
+// Fetch all needed statistics through dedicated helper functions
+$totalUsers      = fetchTotalUsers($pdo);
+$totalAdmins     = fetchTotalAdmins($pdo);
 
 // Terrains statistics
-$totalTerrains = $pdo->query('SELECT COUNT(*) FROM terrain')->fetchColumn();
-$reservedTerrains = $pdo->query('SELECT COUNT(DISTINCT Id_Terrain) FROM reservation')->fetchColumn();
-$percentReserved = $totalTerrains > 0 ? round($reservedTerrains / $totalTerrains * 100, 2) : 0;
+$totalTerrains   = fetchTotalTerrains($pdo);
+$reservedTerrains = fetchReservedTerrains($pdo);
+$percentReserved  = $totalTerrains > 0 ? round($reservedTerrains / $totalTerrains * 100, 2) : 0;
 
-$citiesStmt = $pdo->query('SELECT ville, COUNT(*) AS nbr FROM utilisateur GROUP BY ville ORDER BY nbr DESC LIMIT 5');
-$cities = $citiesStmt->fetchAll(PDO::FETCH_ASSOC);
-
-$resStmt = $pdo->query('SELECT u.nom, u.Prenom, COUNT(r.Id_reservation) AS nbr FROM utilisateur u LEFT JOIN reservation r ON u.Id_utilisateur = r.Id_utilisateur GROUP BY u.Id_utilisateur ORDER BY nbr DESC LIMIT 5');
-$reservers = $resStmt->fetchAll(PDO::FETCH_ASSOC);
+$cities     = fetchTopCities($pdo, 5);
+$reservers  = fetchTopReservers($pdo, 5);
 ?>
 
 
