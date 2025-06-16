@@ -30,8 +30,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <?php if (isset($_SESSION['Id_utilisateur'])): ?>
     <span class="user-info">
-        <?= htmlspecialchars($_SESSION['Prenom'] . ' ' . $_SESSION['nom']) ?>
-        (<?= $_SESSION['isAdmin'] == 1 ? 'Admin' : 'Utilisateur' ?>)
+        <?= htmlspecialchars(($_SESSION['Prenom'] ?? '') . ' ' . ($_SESSION['nom'] ?? '')) ?>
+        (<?= ($_SESSION['isAdmin'] ?? 0) == 1 ? 'Admin' : 'Utilisateur' ?>)
     </span>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
 <?php else: ?>
