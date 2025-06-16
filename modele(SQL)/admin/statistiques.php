@@ -2,31 +2,28 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
 
 /**
- * Retrieve the number of users registered.
+ * Récupère le nombre d'utilisateurs inscrits.
  */
 function fetchTotalUsers(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
 }
 
-
 function fetchTotalAdmins(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM utilisateur WHERE isAdmin = 1')->fetchColumn();
 }
 
-
 function fetchTotalTerrains(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(*) FROM terrain')->fetchColumn();
 }
-
 
 function fetchReservedTerrains(PDO $pdo): int {
     return (int) $pdo->query('SELECT COUNT(DISTINCT Id_Terrain) FROM reservation')->fetchColumn();
 }
 
 /**
- * Calculate the occupancy rate of the terrains.
+ * Calcule le taux d'occupation des terrains.
  *
- * @return float Ratio of reserved terrains to total terrains
+ * @return float Ratio des terrains réservés sur le total des terrains
  */
 function tauxOccupationTerrain(PDO $pdo): float {
     $total    = fetchTotalTerrains($pdo);
@@ -38,7 +35,6 @@ function tauxOccupationTerrain(PDO $pdo): float {
 }
 
 /**
-
  *
  * @param PDO $pdo       
  * @param int $limit     
@@ -49,7 +45,6 @@ function fetchTopCities(PDO $pdo, int $limit = 5): array {
     $stmt = $pdo->query('SELECT ville, COUNT(*) AS nbr FROM utilisateur GROUP BY ville ORDER BY nbr DESC LIMIT ' . (int) $limit);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
 /**
  * @param PDO $pdo  
