@@ -218,6 +218,12 @@ table {
     text-align: center;
 }
 
+/* Footer styles */
+footer {
+    width: 100%;
+    text-align: center;
+}
+
 /* Back button displayed in footer */
 .back-button {
     display: inline-block;
