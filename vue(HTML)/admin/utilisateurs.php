@@ -133,10 +133,6 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 
-
-</div>
-<p style="text-align:center;">Pour toute question, <a href="vue(HTML)/commun/contact.php">contactez le créateur</a>.</p>
-</div>
 </body>
 <footer>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
