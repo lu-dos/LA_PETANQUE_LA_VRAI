@@ -3,10 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 // Restrict access to logged in non-admin users
-if (empty($_SESSION['Id_utilisateur']) || (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1)) {
-    header('Location: login.php');
-    exit();
-}
+// if (empty($_SESSION['Id_utilisateur']) || (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1)) {
+//     header('Location: login.php');
+//     exit();
+// }
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/reservation.php';
 $pdo = getDbConnection();
@@ -19,6 +19,18 @@ if (!$user) {
     exit();
 }
 ?>
+
+<?php if (!$user): ?>
+    
+    <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/logout.php" class="logout-button">Se Déconnecter</a>
+<?php else: ?>
+    <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
+    <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
+<?php endif; ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,6 +48,8 @@ if (!$user) {
         <p><strong>Nom :</strong> <?= htmlspecialchars($user['nom']) ?></p>
         <p><strong>Prénom :</strong> <?= htmlspecialchars($user['Prenom']) ?></p>
         <p><strong>Email :</strong> <?= htmlspecialchars($user['mail']) ?></p>
+
+
     </div>
 </div>
 </body>

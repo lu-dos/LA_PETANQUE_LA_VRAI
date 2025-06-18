@@ -70,34 +70,13 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
+
 <div class="container">
 <h1>Gestion des Utilisateurs</h1>
 
-<h2><?php echo $editUser ? 'Modifier un utilisateur' : 'Ajouter un utilisateur'; ?></h2>
 <div class="card">
-<form method="POST" action="">
-    <input type="hidden" name="action" value="<?php echo $editUser ? 'update' : 'add'; ?>">
-    <?php if ($editUser): ?>
-        <input type="hidden" name="id" value="<?php echo htmlspecialchars($editUser['Id_utilisateur']); ?>">
-    <?php endif; ?>
-    <label>Nom</label>
-    <input type="text" name="nom" value="<?php echo $editUser ? htmlspecialchars($editUser['nom']) : ''; ?>" required><br>
-    <label>Prénom</label>
-    <input type="text" name="Prenom" value="<?php echo $editUser ? htmlspecialchars($editUser['Prenom']) : ''; ?>" required><br>
-    <label>Mail</label>
-    <input type="email" name="mail" value="<?php echo $editUser ? htmlspecialchars($editUser['mail']) : ''; ?>" required><br>
-    <label>Ville</label>
-    <input type="text" name="ville" value="<?php echo $editUser ? htmlspecialchars($editUser['ville']) : ''; ?>" required><br>
-    <label>Mot de passe<?php if (!$editUser) echo ' (obligatoire)'; ?></label>
-    <input type="password" name="mdp" <?php echo $editUser ? '' : 'required'; ?>><br>
-    <label>Admin</label>
-    <input type="checkbox" name="isAdmin" value="1" <?php if ($editUser && $editUser['isAdmin']) echo 'checked'; ?>><br>
-    <input type="submit" value="<?php echo $editUser ? 'Mettre à jour' : 'Ajouter'; ?>">
-</form>
-</div>
-
 <h2>Liste des utilisateurs</h2>
-<div class="card">
+
 <table>
     <thead>
         <tr>
@@ -128,8 +107,34 @@ $utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
     </tbody>
 </table>
+<p style="text-align:center;">Nombre d'utilisateurs : <?php echo count($utilisateurs); ?></p>
+
+<h2><?php echo $editUser ? 'Modifier un utilisateur' : 'Ajouter un utilisateur'; ?></h2>
+<div class="card">
+<form method="POST" action="">
+    <input type="hidden" name="action" value="<?php echo $editUser ? 'update' : 'add'; ?>">
+    <?php if ($editUser): ?>
+        <input type="hidden" name="id" value="<?php echo htmlspecialchars($editUser['Id_utilisateur']); ?>">
+    <?php endif; ?>
+    <label>Nom</label>
+    <input type="text" name="nom" value="<?php echo $editUser ? htmlspecialchars($editUser['nom']) : ''; ?>" required><br>
+    <label>Prénom</label>
+    <input type="text" name="Prenom" value="<?php echo $editUser ? htmlspecialchars($editUser['Prenom']) : ''; ?>" required><br>
+    <label>Mail</label>
+    <input type="email" name="mail" value="<?php echo $editUser ? htmlspecialchars($editUser['mail']) : ''; ?>" required><br>
+    <label>Ville</label>
+    <input type="text" name="ville" value="<?php echo $editUser ? htmlspecialchars($editUser['ville']) : ''; ?>" required><br>
+    <label>Mot de passe<?php if (!$editUser) echo ' (obligatoire)'; ?></label>
+    <input type="password" name="mdp" <?php echo $editUser ? '' : 'required'; ?>><br>
+    <label>Admin</label>
+    <input type="checkbox" name="isAdmin" value="1" <?php if ($editUser && $editUser['isAdmin']) echo 'checked'; ?>><br>
+    <input type="submit" value="<?php echo $editUser ? 'Mettre à jour' : 'Ajouter'; ?>">
+</form>
 </div>
-<p style="text-align:center;">Nombre d'utilisateurs : <?php echo count($utilisateurs); ?>.</p>
+
+
+
+</div>
 <p style="text-align:center;">Pour toute question, <a href="vue(HTML)/commun/contact.php">contactez le créateur</a>.</p>
 </div>
 </body>

@@ -18,6 +18,6 @@
 <body></body>
 
 <p><a href="javascript:history.back()" class="back-button">Retour</a></p>
-<p>© 2025 - Réserver Ta Pétanque .com - Tous droits réservés.</p>
+<p>© 2025 - Réserve Ta Pétanque .com - Tous droits réservés.</p>
     
 </html>
