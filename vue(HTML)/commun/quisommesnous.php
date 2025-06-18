@@ -18,5 +18,6 @@
     </div>
 </div>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>
 </html>

@@ -86,8 +86,6 @@ $reservers  = fetchTopReservers($pdo, 5);
         </table>
     </div>
 </div>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>
-<footer>
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
-</footer>
 </html>
