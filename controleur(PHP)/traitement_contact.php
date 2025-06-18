@@ -40,7 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mail($to, $subject, $body, $headers)) {
         echo "<script>alert('Message envoyé !'); window.location.href='/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php';</script>";
     } else {
-        echo "<script>alert('Erreur lors de l\'envoi du message.'); window.history.back();</script>";
+        $logDir = __DIR__ . '/../logs';
+        if (!is_dir($logDir)) {
+            mkdir($logDir, 0777, true);
+        }
+        $logMessage = date('c') . " | $name <$email> : " . str_replace("\n", ' ', $message) . PHP_EOL;
+        file_put_contents($logDir . '/contact_messages.log', $logMessage, FILE_APPEND);
+        echo "<script>alert('Erreur lors de l\'envoi du message. Votre message a été enregistré.'); window.history.back();</script>";
     }
 }
 ?>
