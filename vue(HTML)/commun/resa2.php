@@ -189,7 +189,9 @@ try {
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
         // initialisation de la carte 
-        var map = L.map('map').setView([48.6921, 6.1844], 10);
+        var map = L.map('map').setView([46.651562, 1.966979], 5);
+
+        
 
         // Ajouter la couche OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
