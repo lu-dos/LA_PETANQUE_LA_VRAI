@@ -2,11 +2,12 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-// Restrict access to logged in non-admin users
-// if (empty($_SESSION['Id_utilisateur']) || (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1)) {
-//     header('Location: login.php');
-//     exit();
-// }
+
+// Redirect visitors who are not logged in
+if (empty($_SESSION['Id_utilisateur'])) {
+    header('Location: login.php');
+    exit();
+}
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/reservation.php';
 $pdo = getDbConnection();
