@@ -233,3 +233,41 @@ table {
 .back-button:hover {
     background-color: #0056b3;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+body.dark-mode form {
+    background-color: #1e1e1e;
+    border-color: #444;
+}
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #333;
+    color: #f1f1f1;
+    border-color: #555;
+}
+.theme-toggle {
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+/* Cookie banner (may be hidden after acceptance) */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+.cookie-buttons {
+    margin-top: 5px;
+}
