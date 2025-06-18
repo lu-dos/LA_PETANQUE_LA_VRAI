@@ -31,6 +31,23 @@ function createReservation(PDO $pdo, $terrainId, $userId, $startDate, $endDate, 
 }
 
 /**
+ * Retrieve all reservations for a specific terrain.
+ *
+ * @param PDO $pdo         Database connection
+ * @param int $terrainId   Terrain identifier
+ *
+ * @return array           List of reservations with start and end dates
+ */
+function getReservationsForTerrain(PDO $pdo, $terrainId) {
+    $sql = 'SELECT date_debut, date_fin FROM reservation
+            WHERE Id_Terrain = :terrain
+            ORDER BY date_debut ASC';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':terrain' => $terrainId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
  * Retrieve all reservations for a specific user.
  *
  * @param PDO $pdo       Database connection
