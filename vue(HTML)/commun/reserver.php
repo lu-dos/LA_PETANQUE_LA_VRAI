@@ -24,6 +24,9 @@ if (!$terrain) {
     exit();
 }
 
+// Fetch existing reservations for this terrain
+$existingReservations = getReservationsForTerrain($pdo, $terrainId);
+
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dateDebut = $_POST['date_debut'] ?? '';
@@ -55,6 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="card">
 <h1>Réserver le terrain: <?= htmlspecialchars($terrain['nom_terrain']) ?></h1>
 <?php if ($message) echo '<p>' . htmlspecialchars($message) . '</p>'; ?>
+<?php if (empty($existingReservations)): ?>
+    <p>Sois le premier à reserver ce terrain !</p>
+<?php else: ?>
+    <p>Créneaux déjà réservés :</p>
+    <ul>
+    <?php foreach ($existingReservations as $resa): ?>
+        <li>Du <?= htmlspecialchars($resa['date_debut']) ?> au <?= htmlspecialchars($resa['date_fin']) ?></li>
+    <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
 <form method="POST">
     <label for="date_debut">Date de début</label>
     <input type="datetime-local" id="date_debut" name="date_debut" required><br>
