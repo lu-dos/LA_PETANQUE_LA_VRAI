@@ -1,16 +1,6 @@
 <?php
 
-class db {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '';
-    private $dbname = 'your_database';
-
-    public function __construct() {
-        // Example: create a PDO connection (customize as needed)
-        // $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
-    }
-}
+require_once dirname(__DIR__, 2) . '/include(redondance)/init.php';
 
 class CUtilisateur
 {
@@ -23,7 +13,7 @@ class CUtilisateur
     private int $isClient = 0;
     private int $isAdmin = 0;
     
-    private $conn ;
+    private $conn;
     
 
     public function GetUserId()
@@ -37,7 +27,6 @@ class CUtilisateur
     }
 
     public function __construct(){
-        $this->conn = new db();
-        
+        $this->conn = $pdo;
     }
 }

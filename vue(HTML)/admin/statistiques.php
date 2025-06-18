@@ -9,8 +9,7 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     exit();
 }
 // Inclut les fonctions de statistiques
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/admin/statistiques.php';
-$pdo = getPDO();
+require_once dirname(__DIR__, 2) . '/modele(SQL)/admin/statistiques.php';
 
 // Récupère toutes les statistiques nécessaires via les fonctions dédiées
 $totalUsers      = fetchTotalUsers($pdo);

@@ -1,7 +1,6 @@
 <?php
 /* ───────── Connexion BDD ───────── */
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
-$pdo = getPDO();
+require_once dirname(__DIR__) . '/include(redondance)/init.php';
 
 /* ───────── Formulaire soumis ? ───────── */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

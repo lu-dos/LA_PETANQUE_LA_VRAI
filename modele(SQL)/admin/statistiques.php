@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/db.php';
+require_once dirname(__DIR__, 2) . '/include(redondance)/init.php';
 
 /**
  * Récupère le nombre d'utilisateurs inscrits.
