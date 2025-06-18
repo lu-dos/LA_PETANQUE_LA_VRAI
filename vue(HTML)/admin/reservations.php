@@ -107,8 +107,6 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/ajouter.php" style="padding: 10px 15px; background-color: green; color: white; text-decoration: none; border-radius: 5px;">Ajouter une réservation</a>
     </div>
     <?php endif; ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>
-<footer>
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
-</footer>
 </html>
