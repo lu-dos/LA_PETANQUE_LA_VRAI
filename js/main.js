@@ -16,24 +16,7 @@ function init() {
     input.parentNode.insertBefore(toggle, input.nextSibling);
   });
 
-  const toggleTheme = document.getElementById('theme-toggle');
-  if (toggleTheme) {
-    const enableDark = () => document.body.classList.add('dark-mode');
-    const disableDark = () => document.body.classList.remove('dark-mode');
-
-    if (localStorage.getItem('darkMode') === 'on') {
-      enableDark();
-    }
-    toggleTheme.addEventListener('click', function () {
-      if (document.body.classList.contains('dark-mode')) {
-        disableDark();
-        localStorage.setItem('darkMode', 'off');
-      } else {
-        enableDark();
-        localStorage.setItem('darkMode', 'on');
-      }
-    });
-  }
+  // Dark mode functionality removed
 
   if (!localStorage.getItem('cookiesAccepted')) {
     const banner = document.createElement('div');
