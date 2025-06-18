@@ -18,6 +18,12 @@ if (isset($_GET['read'])) {
     exit();
 }
 
+if (isset($_GET['delete'])) {
+    deleteReceivedMessage($pdo, (int)$_GET['delete'], $userId);
+    header('Location: mailbox.php');
+    exit();
+}
+
 // Send message
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dest = (int)($_POST['destinataire'] ?? 0);
@@ -54,6 +60,7 @@ $users = getAllUsers($pdo);
                     <th>Sujet</th>
                     <th>Date</th>
                     <th>Lu</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +75,12 @@ $users = getAllUsers($pdo);
                             <a href="vue(HTML)/commun/mailbox.php?read=<?= $m['Id_mail'] ?>">Marquer comme lu</a>
                         <?php endif; ?>
                     </td>
+                    <td>
+                        <a href="vue(HTML)/commun/mailbox.php?delete=<?= $m['Id_mail'] ?>" onclick="return confirm('Supprimer ?');">Supprimer</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td colspan="4"><?= nl2br(htmlspecialchars($m['corps'])) ?></td>
+                    <td colspan="5"><?= nl2br(htmlspecialchars($m['corps'])) ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
