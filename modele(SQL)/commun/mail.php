@@ -25,3 +25,30 @@ function markMessageRead(PDO $pdo, int $messageId, int $userId): void {
     $stmt = $pdo->prepare('UPDATE mail SET lu = 1 WHERE Id_mail = ? AND destinataire_id = ?');
     $stmt->execute([$messageId, $userId]);
 }
+
+function deleteMessage(PDO $pdo, int $messageId): void {
+    $stmt = $pdo->prepare('DELETE FROM mail WHERE Id_mail = ?');
+    $stmt->execute([$messageId]);
+}
+
+function deleteReceivedMessage(PDO $pdo, int $messageId, int $userId): void {
+    $stmt = $pdo->prepare('DELETE FROM mail WHERE Id_mail = ? AND destinataire_id = ?');
+    $stmt->execute([$messageId, $userId]);
+}
+
+function getAllMessages(PDO $pdo): array {
+    $sql = 'SELECT m.*, 
+                   exp.Prenom AS expediteur_prenom, exp.nom AS expediteur_nom, 
+                   dest.Prenom AS destinataire_prenom, dest.nom AS destinataire_nom
+            FROM mail m
+            JOIN utilisateur exp ON m.expediteur_id = exp.Id_utilisateur
+            JOIN utilisateur dest ON m.destinataire_id = dest.Id_utilisateur
+            ORDER BY m.date_envoi DESC';
+    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getUnreadCount(PDO $pdo, int $userId): int {
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM mail WHERE destinataire_id = ? AND lu = 0');
+    $stmt->execute([$userId]);
+    return (int)$stmt->fetchColumn();
+}

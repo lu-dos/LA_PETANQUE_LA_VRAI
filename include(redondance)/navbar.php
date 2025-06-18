@@ -5,6 +5,12 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/mail.php';
+$pdo = getPDO();
+$unreadCount = 0;
+if (!empty($_SESSION['Id_utilisateur'])) {
+    $unreadCount = getUnreadCount($pdo, (int)$_SESSION['Id_utilisateur']);
+}
 ?>
 <div class="navbar">
     <div class="links">
@@ -14,13 +20,14 @@ if (session_status() === PHP_SESSION_NONE) {
         <?php if (!empty($_SESSION['Id_utilisateur']) && empty($_SESSION['isAdmin'])): ?>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Réserver un Terrain</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/historique.php">Mes Réservations</a>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/mailbox.php">Mes Messages</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/mailbox.php" class="message-link">Mes Messages<?php if ($unreadCount > 0): ?><span class="notif-badge"><?= $unreadCount ?></span><?php endif; ?></a>
         <?php endif; ?>
 
         <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Gérer les terrains</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/utilisateurs.php">Gérer les utilisateurs</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/reservations.php">Gérer les réservations</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/mails.php">Gérer les mails</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/statistiques.php">Statistiques</a>
         <?php endif; ?>
 
@@ -76,6 +83,21 @@ if (session_status() === PHP_SESSION_NONE) {
         text-decoration: none;
         font-size: 17px;
         display: inline-block;
+    }
+
+    .message-link {
+        position: relative;
+    }
+
+    .notif-badge {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
     }
 
     .logout-button {
