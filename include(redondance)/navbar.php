@@ -47,7 +47,8 @@ if (!empty($_SESSION['Id_utilisateur'])) {
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/login.php" class="btn-connexion">Se Connecter</a>
     <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/inscription.php" class="btn-inscription">S'inscrire</a>
 <?php endif; ?>
-       
+    <button id="theme-toggle" class="theme-toggle">Mode sombre</button>
+
 
     </div>
 
