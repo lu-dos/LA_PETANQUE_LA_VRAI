@@ -9,13 +9,30 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/i
 try {
     $conn = getPDO();
 
-    // requete pour recup tous les terrains
-    $sql = "SELECT * FROM terrain";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
+    // Récupération des filtres éventuels
+    $villeFilter = $_GET['ville'] ?? '';
+    $typeFilter  = $_GET['type'] ?? '';
 
-    // recup des resultats 
+    $sql = "SELECT * FROM terrain WHERE 1";
+    $params = [];
+    if ($villeFilter !== '') {
+        $sql .= " AND ville LIKE :ville";
+        $params[':ville'] = "%{$villeFilter}%";
+    }
+    if ($typeFilter !== '') {
+        $sql .= " AND type_terrain = :type";
+        $params[':type'] = $typeFilter;
+    }
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($params);
+
+    // recup des resultats
     $terrains = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Liste des types pour le filtre
+    $typeStmt = $conn->query("SELECT DISTINCT type_terrain FROM terrain");
+    $types = $typeStmt->fetchAll(PDO::FETCH_COLUMN);
 } catch (PDOException $e) {
     echo "Erreur de connexion : " . $e->getMessage();
 }
@@ -86,6 +103,17 @@ try {
             height: 600px;
             width: 100%;
         }
+
+        .filters {
+            margin: 15px 0;
+        }
+
+        .filters form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
     </style>
     <!-- #endregion -->
 </head>
@@ -97,6 +125,21 @@ try {
     <!-- #region Carte -->
     <!-- Carte -->
     <div id="map"></div>
+
+    <div class="filters">
+        <form method="GET">
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville" name="ville" value="<?= htmlspecialchars($villeFilter) ?>">
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+                <option value="">Tous</option>
+                <?php foreach ($types as $type): ?>
+                    <option value="<?= htmlspecialchars($type) ?>" <?= $type === $typeFilter ? 'selected' : '' ?>><?= htmlspecialchars($type) ?></option>
+                <?php endforeach; ?>
+            </select>
+            <button type="submit">Filtrer</button>
+        </form>
+    </div>
 
     <table>
         <thead>
@@ -163,9 +206,13 @@ try {
         // ajout des marqueurs pour chaque terrain
         var terrains = <?= json_encode($terrains) ?>;
         terrains.forEach(function(terrain) {
-            L.marker([terrain.latitude, terrain.longitude])
+            var popupContent = '<b>' + terrain.nom_terrain + '</b><br>' +
+                'Ville: ' + terrain.ville + '<br>' +
+                'Type: ' + terrain.type_terrain + '<br>' +
+                '<a href="reserver.php?id=' + terrain.Id_Terrain + '">Réserver</a>';
+            L.marker([terrain.latitude, terrain.longitude], {icon: icone})
                 .addTo(map)
-                .bindPopup(terrain.nom_terrain);
+                .bindPopup(popupContent);
         });
     </script>
     <!-- #endregion -->
