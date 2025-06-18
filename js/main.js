@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function init() {
   document.querySelectorAll('input[type="password"]').forEach(function (input) {
     const toggle = document.createElement('button');
     toggle.type = 'button';
@@ -78,4 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
   scrollBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
