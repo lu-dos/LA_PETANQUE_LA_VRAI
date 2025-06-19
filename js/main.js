@@ -61,6 +61,23 @@ function init() {
   scrollBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  const manageBtn = document.getElementById('siteManagerBtn');
+  const manageMenu = document.getElementById('siteManagerMenu');
+  if (manageBtn && manageMenu) {
+    manageBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      manageMenu.style.display =
+        manageMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!manageMenu.contains(e.target) && !manageBtn.contains(e.target)) {
+        manageMenu.style.display = 'none';
+      }
+    });
+  }
 }
 
 if (document.readyState === 'loading') {
