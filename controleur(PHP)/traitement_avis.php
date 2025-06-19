@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $logMessage = date('c') . " | $name ($note/5) : " . str_replace("\n", ' ', $comment) . PHP_EOL;
         file_put_contents($logDir . '/avis.log', $logMessage, FILE_APPEND);
-        echo "<script>alert('Erreur lors de l\'envoi de l\'avis. Votre avis a été enregistré.'); window.history.back();</script>";
+        echo "<script>alert('Merci pour votre avis !'); window.location.href='/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/accueil.php';</script>";
     }
 }
 ?>
