@@ -8,6 +8,7 @@ if (empty($_SESSION['Id_utilisateur'])) {
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/reservation.php';
 $pdo = getDbConnection();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/utils.php';
 
 $terrainId = $_GET['id'] ?? '';
 if (!$terrainId) {
@@ -64,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p>Créneaux déjà réservés :</p>
     <ul>
     <?php foreach ($existingReservations as $resa): ?>
-        <li>Du <?= htmlspecialchars($resa['date_debut']) ?> au <?= htmlspecialchars($resa['date_fin']) ?></li>
+        <li>Du <?= htmlspecialchars(formatDatetimeFr($resa['date_debut'])) ?> au <?= htmlspecialchars(formatDatetimeFr($resa['date_fin'])) ?></li>
     <?php endforeach; ?>
     </ul>
 <?php endif; ?>

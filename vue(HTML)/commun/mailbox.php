@@ -9,6 +9,7 @@ if (empty($_SESSION['Id_utilisateur'])) {
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/mail.php';
 $pdo = getPDO();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/utils.php';
 $userId = (int)$_SESSION['Id_utilisateur'];
 
 // Mark as read
@@ -68,7 +69,7 @@ $users = getAllUsers($pdo);
                 <tr>
                     <td><?= htmlspecialchars($m['Prenom'] . ' ' . $m['nom']) ?></td>
                     <td><?= htmlspecialchars($m['sujet'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($m['date_envoi']) ?></td>
+                    <td><?= htmlspecialchars(formatDatetimeFr($m['date_envoi'])) ?></td>
                     <td>
                         <?= $m['lu'] ? 'Oui' : 'Non' ?>
                         <?php if (!$m['lu']): ?>

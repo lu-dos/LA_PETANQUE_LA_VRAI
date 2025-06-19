@@ -10,6 +10,7 @@ if (empty($_SESSION['Id_utilisateur']) || (!empty($_SESSION['isAdmin']) && $_SES
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/reservation.php';
 $pdo = getDbConnection();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/utils.php';
 
 $userId = $_SESSION['Id_utilisateur'];
 // Handle reservation cancellation
@@ -49,8 +50,8 @@ $reservations = getReservationsForUser($pdo, $userId);
             <?php foreach ($reservations as $r): ?>
                 <tr>
                     <td><?= htmlspecialchars($r['nom_terrain']) ?></td>
-                    <td><?= htmlspecialchars($r['date_debut']) ?></td>
-                    <td><?= htmlspecialchars($r['date_fin']) ?></td>
+                    <td><?= htmlspecialchars(formatDatetimeFr($r['date_debut'])) ?></td>
+                    <td><?= htmlspecialchars(formatDatetimeFr($r['date_fin'])) ?></td>
                     <td><?= htmlspecialchars($r['nbr_util']) ?></td>
                     <td>
                         <a class="button" href="vue(HTML)/commun/historique.php?delete=<?= urlencode($r['Id_reservation']) ?>" onclick="return confirm('Annuler cette réservation ?');">Annuler</a>
