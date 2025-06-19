@@ -25,8 +25,8 @@ if (!empty($_SESSION['Id_utilisateur'])) {
 
 <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
         <div class="dropdown">
-            <a href="#" class="dropbtn">Gérer le site</a>
-            <div class="dropdown-content">
+            <a href="javascript:void(0)" class="dropbtn" id="siteManagerBtn">Gérer le site</a>
+            <div class="dropdown-content" id="siteManagerMenu">
                 <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Gérer les terrains</a>
                 <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/utilisateurs.php">Gérer les utilisateurs</a>
                 <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/reservations.php">Gérer les réservations</a>
