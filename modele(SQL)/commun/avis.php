@@ -26,4 +26,46 @@ function getAvis(PDO $pdo): array {
     $sql = 'SELECT a.*, u.Prenom, u.nom FROM avis a LEFT JOIN utilisateur u ON a.utilisateur_id = u.Id_utilisateur ORDER BY a.created_at DESC';
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+/**
+ * Récupère un avis par son identifiant.
+ *
+ * @param PDO $pdo  Connexion PDO
+ * @param int $id   Identifiant de l'avis
+ *
+ * @return array|false Les données de l'avis ou false si introuvable
+ */
+function getAvisById(PDO $pdo, int $id) {
+    $stmt = $pdo->prepare('SELECT a.*, u.Prenom, u.nom FROM avis a LEFT JOIN utilisateur u ON a.utilisateur_id = u.Id_utilisateur WHERE id_avis = ?');
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Met à jour un avis existant.
+ *
+ * @param PDO    $pdo     Connexion PDO
+ * @param int    $id      Identifiant de l'avis
+ * @param int    $note    Nouvelle note
+ * @param string $comment Nouveau texte de l'avis
+ *
+ * @return bool  Succès de la mise à jour
+ */
+function updateAvis(PDO $pdo, int $id, int $note, string $comment): bool {
+    $stmt = $pdo->prepare('UPDATE avis SET note = ?, avis = ? WHERE id_avis = ?');
+    return $stmt->execute([$note, $comment, $id]);
+}
+
+/**
+ * Supprime un avis.
+ *
+ * @param PDO $pdo Connexion PDO
+ * @param int $id  Identifiant de l'avis
+ *
+ * @return bool    Succès de la suppression
+ */
+function deleteAvis(PDO $pdo, int $id): bool {
+    $stmt = $pdo->prepare('DELETE FROM avis WHERE id_avis = ?');
+    return $stmt->execute([$id]);
+}
 ?>
