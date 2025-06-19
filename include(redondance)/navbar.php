@@ -32,6 +32,7 @@ if (!empty($_SESSION['Id_utilisateur'])) {
         <?php endif; ?>
 
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/quisommesnous.php">Qui sommes-nous ?</a>
+        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/avis.php">Donner votre avis</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/profil.php">Mon Profil</a>
 
     </div>
