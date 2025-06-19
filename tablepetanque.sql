@@ -39,6 +39,23 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 
 -- --------------------------------------------------------
 --
+-- Structure de la table `avis`
+--
+
+DROP TABLE IF EXISTS `avis`;
+CREATE TABLE IF NOT EXISTS `avis` (
+  `id_avis` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `utilisateur_id` int NOT NULL,
+  `note` smallint NOT NULL,
+  `avis` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_avis`),
+  UNIQUE KEY `id_avis` (`id_avis`),
+  KEY `fk_utilisateur` (`utilisateur_id`)
+) ;
+
+-- --------------------------------------------------------
+--
 -- Structure de la table `mail`
 --
 
