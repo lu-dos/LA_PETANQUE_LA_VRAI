@@ -23,14 +23,19 @@ if (!empty($_SESSION['Id_utilisateur'])) {
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/mailbox.php" class="message-link">Mes Messages<?php if ($unreadCount > 0): ?><span class="notif-badge"><?= $unreadCount ?></span><?php endif; ?></a>
         <?php endif; ?>
 
-        <?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Gérer les terrains</a>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/utilisateurs.php">Gérer les utilisateurs</a>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/reservations.php">Gérer les réservations</a>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/mails.php">Gérer les mails</a>
-        <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/avis.php">Gérer les avis</a>
+<?php if (!empty($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1): ?>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Gérer le site</a>
+            <div class="dropdown-content">
+                <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/resa2.php">Gérer les terrains</a>
+                <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/utilisateurs.php">Gérer les utilisateurs</a>
+                <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/reservations.php">Gérer les réservations</a>
+                <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/mails.php">Gérer les mails</a>
+                <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/avis.php">Gérer les avis</a>
+            </div>
+        </div>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/admin/statistiques.php">Statistiques</a>
-        <?php endif; ?>
+<?php endif; ?>
 
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/quisommesnous.php">Qui sommes-nous ?</a>
         <a href="/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/vue(HTML)/commun/avis.php">Donner votre avis</a>
@@ -111,6 +116,45 @@ if (!empty($_SESSION['Id_utilisateur'])) {
 
     .navbar .links a:hover,
     .logout-button:hover {
+        background-color: #555;
+        border-radius: 5px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropbtn {
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        flex-direction: column;
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #555;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
         background-color: #555;
         border-radius: 5px;
     }
