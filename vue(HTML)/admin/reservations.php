@@ -8,6 +8,7 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/reservation.php';
 $pdo = getDbConnection();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/utils.php';
 
 // Delete reservation
 if (isset($_GET['delete'])) {
@@ -87,8 +88,8 @@ $reservations = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($reservations as $r): ?>
         <tr>
             <td><?= htmlspecialchars($r['nom_terrain']) ?></td>
-            <td><?= htmlspecialchars($r['date_debut']) ?></td>
-            <td><?= htmlspecialchars($r['date_fin']) ?></td>
+            <td><?= htmlspecialchars(formatDatetimeFr($r['date_debut'])) ?></td>
+            <td><?= htmlspecialchars(formatDatetimeFr($r['date_fin'])) ?></td>
             <td><?= htmlspecialchars($r['nom'] . ' ' . $r['Prenom']) ?></td>
             <td><?= htmlspecialchars($r['nbr_util']) ?></td>
             <td>

@@ -9,6 +9,7 @@ if (empty($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/mail.php';
 $pdo = getPDO();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/utils.php';
 
 if (isset($_GET['delete'])) {
     deleteMessage($pdo, (int)$_GET['delete']);
@@ -51,7 +52,7 @@ $mails = getAllMessages($pdo);
                     <td><?= htmlspecialchars($m['expediteur_prenom'] . ' ' . $m['expediteur_nom']) ?></td>
                     <td><?= htmlspecialchars($m['destinataire_prenom'] . ' ' . $m['destinataire_nom']) ?></td>
                     <td><?= htmlspecialchars($m['sujet'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($m['date_envoi']) ?></td>
+                    <td><?= htmlspecialchars(formatDatetimeFr($m['date_envoi'])) ?></td>
                     <td><?= $m['lu'] ? 'Oui' : 'Non' ?></td>
                     <td>
                         <a class="button" href="vue(HTML)/admin/mails.php?delete=<?= $m['Id_mail'] ?>" onclick="return confirm('Supprimer ?');">Supprimer</a>
