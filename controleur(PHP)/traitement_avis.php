@@ -1,16 +1,26 @@
 <?php
 session_start();
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/avis.php';
+$pdo = getPDO();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $note = (int)($_POST['note'] ?? 0);
+    $note    = (int)($_POST['note'] ?? 0);
     $comment = trim($_POST['comment'] ?? '');
-    $name = '';
+    $name    = '';
+
     if (!empty($_SESSION['Prenom']) || !empty($_SESSION['nom'])) {
         $name = trim(($_SESSION['Prenom'] ?? '') . ' ' . ($_SESSION['nom'] ?? ''));
     } else {
         $name = 'Visiteur';
     }
 
-    $to = 'ludorouge7@gmail.com';
+    $userId = isset($_SESSION['Id_utilisateur']) ? (int)$_SESSION['Id_utilisateur'] : 0;
+
+    // Enregistrement de l'avis dans la base
+    addAvis($pdo, $userId, $note, $comment);
+
+    $to      = 'ludorouge7@gmail.com';
     $subject = 'Nouvel avis sur le site';
     $message = "Utilisateur: $name\n";
     $message .= "Note: $note/5\n\n";

@@ -8,7 +8,12 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php'); ?>
+<?php 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/navbar.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/modele(SQL)/commun/avis.php');
+$pdo = getPDO();
+$avisList = getAvis($pdo);
+?>
 <div class="container">
     <h1>Laisser un avis</h1>
     <div class="card">
@@ -26,6 +31,17 @@
             <input type="submit" value="Envoyer">
         </form>
     </div>
+
+    <?php if (!empty($avisList)): ?>
+    <h2>Derniers avis</h2>
+    <?php foreach ($avisList as $avis): ?>
+        <div class="avis-item">
+            <strong><?= htmlspecialchars(trim(($avis['Prenom'] ?? '') . ' ' . ($avis['nom'] ?? 'Visiteur'))) ?></strong>
+            <span>(<?= (int)$avis['note'] ?>/5)</span>
+            <p><?= htmlspecialchars($avis['avis']) ?></p>
+        </div>
+    <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/E5_petanque_MVC/LA_PETANQUE_LA_VRAI/include(redondance)/footer.php'); ?>
 </body>
